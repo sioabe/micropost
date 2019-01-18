@@ -41,8 +41,10 @@ class UsersController < ApplicationController
   
   def likes #お気に入りされているmicropost
     @user = User.find(params[:id])
-    #micropost = Micropost.find(params[:id])
     @likes = @user.likes.page(params[:page])
+    @likes.each do |like|
+      @liked_user = User.find(like.user_id)
+    end
   end
 
   private

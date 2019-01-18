@@ -1,8 +1,14 @@
-<h1>likes　お気に入り一覧</h1>
-<tbody>
+<h1><%= @user.name %>のお気に入り一覧</h1>
+
+<ul class="media-list">
   <% @likes.each do |like| %>
-  <tr>
-    <td><%= like.content %></td>
-  </tr>
+    <li class="media">
+      <div class="media-body">
+        <div>
+          <%= link_to User.find(like.user_id).name, user_path(User.find(like.user_id)) %> <span class="text-muted">posted at <%= User.find(like.user_id).created_at %></span>
+          <p><%= like.content %></p>
+        </div>
+      </div>
+    </li>
   <% end %>
-</tbody>
+</ul>
