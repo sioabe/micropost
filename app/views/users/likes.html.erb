@@ -1,0 +1,8 @@
+<h1>likes　お気に入り一覧</h1>
+<tbody>
+  <% @likes.each do |like| %>
+  <tr>
+    <td><%= like.content %></td>
+  </tr>
+  <% end %>
+</tbody>

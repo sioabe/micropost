@@ -21,10 +21,10 @@ Rails.application.routes.draw do
   #fav/unfavできるようにするルーティング
   resources :favorites, only: [:create, :destroy]
   #中間テーブルより先のお気に入りmicropost一覧を表示するためのルーティング
-  resources :microposts, only: [:index, :show, :new, :create] do
+  resources :users, only: [:index, :show, :new, :create] do
     member do
-      get 'likes', to: "micropost#favorite_microposts"
-      get :favorite_users   #いらないかも
+      get :likes
+      get :favorite_users
     end
   end
 end

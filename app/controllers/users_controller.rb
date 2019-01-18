@@ -38,10 +38,17 @@ class UsersController < ApplicationController
     @followers = @user.followers.page(params[:page])
     counts(@user)
   end
+  
+  def likes #お気に入りされているmicropost
+    @user = User.find(params[:id])
+    #micropost = Micropost.find(params[:id])
+    @likes = @user.likes.page(params[:page])
+  end
 
   private
   
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
+  
 end
