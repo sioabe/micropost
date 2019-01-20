@@ -7,6 +7,7 @@
         <div>
           <%= link_to User.find(like.user_id).name, user_path(User.find(like.user_id)) %> <span class="text-muted">posted at <%= User.find(like.user_id).created_at %></span>
           <p><%= like.content %></p>
+          <p><%= render 'favorites/favorite_button', micropost: like %></p>
         </div>
       </div>
     </li>
